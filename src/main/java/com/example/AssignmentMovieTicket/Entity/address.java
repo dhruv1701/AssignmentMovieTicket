@@ -1,5 +1,6 @@
 package com.example.AssignmentMovieTicket.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class address {
     private String description;
     @NotNull
     private Integer pinCode;
+    @JsonManagedReference(value = "address-theatre")
     @OneToOne(mappedBy = "address")
     private theatres theatre;
 }

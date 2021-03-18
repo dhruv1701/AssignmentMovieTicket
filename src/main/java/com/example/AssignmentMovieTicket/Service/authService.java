@@ -4,7 +4,6 @@ import com.example.AssignmentMovieTicket.Model.usersModel;
 
 import java.util.Optional;
 
-public interface usersService {
+public interface authService {
     Optional<String> addNewUser(usersModel userDetails);
-    Optional<String> loginUser(usersModel userDetails);
 }

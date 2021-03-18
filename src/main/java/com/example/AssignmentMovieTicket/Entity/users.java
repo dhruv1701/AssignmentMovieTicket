@@ -1,5 +1,6 @@
 package com.example.AssignmentMovieTicket.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table( indexes = @Index (name = "indexOnEmail", columnList = "email"))
+@Table( indexes = @Index (name = "indexOnEmail", columnList = "email",unique = true))
 public class users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +27,10 @@ public class users {
     private String password;
     @NotNull
     private Boolean isOwner ;
+    @JsonManagedReference(value = "theatres-users")
     @OneToMany(mappedBy = "owner",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<theatres> theatresSet;
+    @JsonManagedReference(value = "ticket-users")
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<ticket> ticket;
 }
