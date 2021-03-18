@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface seatsRepository extends JpaRepository<seats, Long> {
+    //    findAllByTicket(ticket ticket)
+//    findAllByShows(movieShows show)
+//    findByShowsAndSeatNo(movieShows show,Integer seatNo)
 }

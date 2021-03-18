@@ -11,4 +11,5 @@ import java.util.Set;
 @Repository
 public interface theatresRepository extends JpaRepository<theatres, Long> {
     Optional<Set<theatres>> findAllByOwner(users users);
+//    findAllByAddressCity(String city)
 }
